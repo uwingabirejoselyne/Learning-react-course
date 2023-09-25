@@ -4,9 +4,9 @@ import {FaStar} from 'react-icons/fa'
 
 const Card = (props) => {
   let badgeText
-    if (props.openSpots === 0) {
+    if (props.item.openSpots === 0) {
         badgeText = "SOLD OUT"
-    } else if (props.location === "Online") {
+    } else if (props.item.location === "Online") {
         badgeText = "ONLINE"
     }
   return (
@@ -18,12 +18,12 @@ const Card = (props) => {
       </div>
       <div className="card--stats flex flex-row">
               <FaStar  className='text-red-500'/>
-              <span>{props.rating}</span>
-              <span>({props.reviewCount}) • </span>
-              <span>{props.location}</span>
+              <span>{props.item.rating}</span>
+              <span>({props.item.stats.reviewCount}) • </span>
+              <span>{props.item.location}</span>
             </div>
-            <p>{props.title}</p>
-            <p>From ${props.price} / person</p>
+            <p>{props.item.title}</p>
+            <p>From ${props.item.price}/ person</p>
       </div>
     </div>
   )
