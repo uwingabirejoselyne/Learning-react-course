@@ -3,13 +3,18 @@ import {FaStar} from 'react-icons/fa'
 
 
 const Card = (props) => {
-  console.log(props.openSpots);
+  let badgeText
+    if (props.openSpots === 0) {
+        badgeText = "SOLD OUT"
+    } else if (props.location === "Online") {
+        badgeText = "ONLINE"
+    }
   return (
     <div className=' container'>
       <div>
         <div className='relative'>
       <img src={process.env.PUBLIC_URL + "/boy.png"} className='max-w-md'/>
-      <button className='absolute top-2 py-3 px-9 left-3 bg-white rounded-sm'></button>
+      {badgeText && <button className='absolute top-2 h-8 w-24 left-3 bg-white rounded-sm'>{badgeText }</button>}
       </div>
       <div className="card--stats flex flex-row">
               <FaStar  className='text-red-500'/>
