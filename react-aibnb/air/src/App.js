@@ -4,39 +4,18 @@ import Nav from './components/Nav';
 import Section from './components/Section';
 import Card from './components/Card';
 import Joke from './components/Joke';
+import data from './utils/data.json'
+import {useState} from 'react'
 
 
-const jokeData =[
-  {
-    setup: "I got my daughter a fridge for her birthday.",
-    punchline: "I can't wait to see her face light up when she opens it."
-},
-{
-    setup: "How did the hacker escape the police?",
-    punchline: "He just ransomware!"
-},
-{
-    setup: "Why don't pirates travel on mountain roads?",
-    punchline: "Scurvy."
-},
-{
-    setup: "Why do bees stay in the hive in the winter?",
-    punchline: "Swarm."
-},
-{
-    setup: "What's the best thing about Switzerland?",
-    punchline: "I don't know, but the flag is a big plus!"
-}
-]
 
 function App() {
-  
   return (
-    <div>
+    <div className='container'>
      <Nav/>
      <Section/>
-       <div className="grid grid-cols-3 gap-2">
-        <Card
+       <div className="flex justify-between mx-12 gap-4 mt-5">
+        {/* <Card className =""
            rating="5.0"
            reviewCount={6}
            country="USA"
@@ -47,7 +26,7 @@ function App() {
         <Card 
         rating="5.0"
         reviewCount={6}
-        country="RWanda"
+        country="Rwanda"
         title="Life Lessons with Katie Joselyne"
         price={135}
         />
@@ -57,14 +36,20 @@ function App() {
        country="Kenya"
        title="Life Lessons with Katie Uwingabires "
        price={134}
-        />
-      </div>
-      {jokeData.map((item)=>(
-      <Joke key={item.id} 
-      setup= {item.setup}
-      punchline ={item.punchline}
+        /> */}
+        {data.map((item)=>(
+      <Card key={item.id} 
+      rating={item.stats.rating}
+      reviewCount={item.stats.reviewCount}
+      location={item.location}
+      title={item.title}
+      price={item.price}
+      openSpots={item.openSpots}
       />
+      
       ))}
+      </div>
+      
       
     </div>
   );
